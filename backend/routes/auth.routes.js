@@ -8,16 +8,15 @@ import {
 import { protectRoute } from "../middleware/auth.middleware.js";
 const router = express.Router();
 
-// Signup Route
-router.post("/signup", signup);
+// Signup , login , logout , onboard Routes
+router
+  .post("/signup", signup)
+  .post("/login", login)
+  .post("/logout", logout)
+  .post("/onboard", protectRoute, onboard);
 
-// Login Route
-router.post("/login", login);
-
-// Logout Route
-router.post("/logout", logout);
-
-// Onboarding Route
-router.post("/onboard", protectRoute, onboard);
+router.get("/me", protectRoute, (req, res) => {
+  res.status(200).json({ success: true, user: req.user });
+});
 
 export default router;

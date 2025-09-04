@@ -5,8 +5,7 @@ import cors from "cors";
 import path from "path";
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.routes.js";
-import onboardingRoutes from "./routes/auth.routes.js";
-import { protectRoute } from "./middleware/auth.middleware.js";
+import userRoutes from "./routes/user.routes.js";
 
 const PORT = process.env.PORT;
 const app = express();
@@ -22,10 +21,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
-app.use("/api/auth/onboard", onboardingRoutes);
-app.use("/me", protectRoute, (req, res) => {
-  res.send(req.user);
-});
+app.use("/api/users", userRoutes);
+app.use("/api/chat", chatRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
