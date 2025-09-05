@@ -195,7 +195,7 @@ export const LANGUAGE_TO_FLAG = {
   portuguese: "pt",
   arabic: "sa",
   italian: "it",
-  urdu: "ud",
+  urdu: "pk",
   turkish: "tr",
   dutch: "nl",
 };
