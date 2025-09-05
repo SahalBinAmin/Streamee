@@ -32,12 +32,24 @@ export default function App() {
 
         <Route
           path="/signup"
-          element={!isAuthenticated ? <SignupPage /> : <Navigate to="/" />}
+          element={
+            !isAuthenticated ? (
+              <SignupPage />
+            ) : (
+              <Navigate to={isOnboarded ? "/" : "/onboarding"} />
+            )
+          }
         ></Route>
 
         <Route
           path="/login"
-          element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" />}
+          element={
+            !isAuthenticated ? (
+              <LoginPage />
+            ) : (
+              <Navigate to={isOnboarded ? "/" : "/onboarding"} />
+            )
+          }
         ></Route>
 
         <Route
