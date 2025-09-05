@@ -14,14 +14,18 @@ const SignUpPage = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutate, isPending, error } = useMutation({
+  const {
+    mutate: signupMutation,
+    isPending,
+    error,
+  } = useMutation({
     mutationFn: signup,
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
   });
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    mutate(signupData);
+    signupMutation(signupData);
   };
 
   return (
@@ -41,6 +45,11 @@ const SignUpPage = () => {
           </div>
 
           {/* ERROR MESSAGE IF ANY */}
+          {error && (
+            <div className="alert alert-error mb-4">
+              <span>{error.response.data.message}</span>
+            </div>
+          )}
 
           <div className="w-full">
             <form onSubmit={handleSignup}>
