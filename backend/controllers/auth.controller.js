@@ -1,5 +1,5 @@
 import User from "../Models/User.js";
-import { upsertStreamUser } from "../lib/StreamChat.js";
+import { upsertStreamUser } from "../lib/streamChat.js";
 import jwt from "jsonwebtoken";
 
 export async function signup(req, res) {
