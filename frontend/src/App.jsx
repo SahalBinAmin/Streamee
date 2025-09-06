@@ -11,6 +11,7 @@ import PageLoader from "./components/PageLoader";
 import useAuthUser from "./hooks/useAuthUser.js";
 import Layout from "./components/Layout.jsx";
 import { useThemeStore } from "./store/useThemeStore.js";
+import FriendCard from "./components/FriendCard.jsx";
 
 export default function App() {
   const { isLoading, authUser } = useAuthUser();
@@ -72,10 +73,18 @@ export default function App() {
           }
         ></Route>
 
+        {/* <Route path="/friends" element={<FriendCard />}></Route> */}
+
         <Route
-          path="/call"
-          element={isAuthenticated ? <CallPage /> : <Navigate to="/login" />}
-        ></Route>
+          path="/call/:id"
+          element={
+            isAuthenticated && isOnboarded ? (
+              <CallPage />
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
+          }
+        />
 
         <Route
           path="/chat/:id"
