@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.use(protectRoute);
 
-router.get("token", getStreamToken);
+router.get("/token", getStreamToken);
 
 export default router;
