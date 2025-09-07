@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-   "start": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.0",
     "nodemon": "^3.1.10",
-    "stream-chat": "^9.19.0",
-    "streamee": "file:.."
+    "stream-chat": "^9.19.0"
   }
 }
