@@ -13,7 +13,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend URL
+    origin: [
+      "http://localhost:5173", // local dev
+      "https://streamee.vercel.app", // deployed frontend
+    ],
     credentials: true, // allow frontend to send cookies
   })
 );
