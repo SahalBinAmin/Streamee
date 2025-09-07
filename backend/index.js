@@ -22,9 +22,6 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.get("/*spalt", (req, res) => {
-  app.use("api/auth", authRoutes);
-});
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/chat", chatRoutes);

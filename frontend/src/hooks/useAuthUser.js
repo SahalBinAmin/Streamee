@@ -7,6 +7,7 @@ const useAuthUser = () => {
     queryFn: getAuthUser,
     retry: false, // auth check
   });
+  console.log(authUser.isLoading);
 
   return { isLoading: authUser.isLoading, authUser: authUser.data?.user };
 };
